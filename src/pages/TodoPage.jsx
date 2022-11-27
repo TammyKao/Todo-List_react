@@ -1,5 +1,6 @@
 import { Footer, Header, TodoCollection, TodoInput } from 'components';
 import { useState } from 'react';
+import { flushSync } from 'react-dom';
 
 const dummyTodos = [
   {
@@ -32,11 +33,50 @@ const TodoPage = () => {
     setInputValue(value);
   };
 
+  const handleTodo = () => {
+    if (inputValue.length === 0) {
+      return;
+    }
+    setTodos((prevTodos) => {
+      return [
+        ...prevTodos,
+        {
+          id: Math.random() * 100,
+          title: inputValue,
+          isDone: false,
+        },
+      ];
+    });
+    setInputValue('');
+  };
+
+  const handleKeyDown =() {
+    if (inputValue.length === 0) {
+      return;
+    }
+    setTodos((prevTodos) => {
+      return [
+        ...prevTodos,
+        {
+          id: Math.random() * 100,
+          title: inputValue,
+          isDone: false,
+        },
+      ];
+    });
+    setInputValue('');
+  };
+
   return (
     <div>
       TodoPage
       <Header />
-      <TodoInput inputValue={inputValue} onChange={handleInput} />
+      <TodoInput
+        inputValue={inputValue} 
+        onChange={handleInput}
+        onAddTodo={handleTodo}
+        onKeyDown={handleKeyDone}
+        />
       <TodoCollection todos={todos} />
       <Footer />
     </div>
