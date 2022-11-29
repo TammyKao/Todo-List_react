@@ -4,18 +4,18 @@
 
 ## Features
 
-使用者可以查看自己的所有 todo
-使用者可以新增 todo
-使用者可以刪除 todo
-使用者可以標記完成/未完成的 todo
-使用者可以雙擊清單上的特定 todo 編輯內容
+- 使用者可以查看自己的所有 todo
+- 使用者可以新增 todo
+- 使用者可以刪除 todo
+- 使用者可以標記完成/未完成的 todo
+- 使用者可以雙擊清單上的特定 todo 編輯內容
 
 ## Router
 
-Homepage http://localhost:3000
-Signup http://localhost:3000/signup
-Login http://localhost:3000/login
-Todo-list http://localhost:3000/todo
+- Homepage http://localhost:3000
+- Signup http://localhost:3000/signup
+- Login http://localhost:3000/login
+- Todo-list http://localhost:3000/todo
 
 ## Quick Start
 
