@@ -1,6 +1,5 @@
 import { Footer, Header, TodoCollection, TodoInput } from 'components';
 import { useState } from 'react';
-import { flushSync } from 'react-dom';
 
 const dummyTodos = [
   {
@@ -81,10 +80,7 @@ const TodoPage = () => {
     });
   };
 
-
-  const handleSave = ({ id, title }) => {
-  setTodos((prevTodos) => {
-    const handleChangeMode = ({ id, isEdit }) => {
+  const handleChangeMode = ({ id, isEdit }) => {
     setTodos((prevTodos) => {
       return prevTodos.map((todo) => {
         if (todo.id === id) {
@@ -97,6 +93,7 @@ const TodoPage = () => {
       });
     });
   };
+
   const handleSave = ({ id, title }) => {
     setTodos((prevTodos) => {
       return prevTodos.map((todo) => {
@@ -110,6 +107,12 @@ const TodoPage = () => {
         }
         return todo;
       });
+    });
+  };
+
+  const handleDelete = (id) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== id);
     });
   };
 
@@ -128,8 +131,9 @@ const TodoPage = () => {
         onSave={handleSave}
         onToggleDone={handleToggleDone}
         onChangeMode={handleChangeMode}
-       />
-      <Footer />
+        onDelete={handleDelete}
+      />
+      <Footer todos={todos} />
     </div>
   );
 };
